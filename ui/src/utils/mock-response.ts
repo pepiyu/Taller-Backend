@@ -4,7 +4,7 @@ import { Project } from "../model/project";
 
 export const mockLogin = (userName: string, password: string) => new Promise<TokenResponse>(function (resolve, rejected) {
     setTimeout(() => {
-        if (userName === "user@threepoints.com" && password === "patata") {
+        if (userName === "yessica@threepoints.com" && password === "wakawaka") {
             resolve(JSON.parse(
                 `{
                  "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxODg0YmJiM2Q0YTRkNDk1ZDYyNGJhYyIsImVtYWlsIjoibHVjYXNmZXJuYW5kZXphcmFnb25AZ21haWwuY29tIiwiaWF0IjoxNjM2MzIyMzA3LCJleHAiOjE2MzYzMjU5MDd9.yxy7uKWXJx5rY8znRBTg5182llyH8Rs9R8C6_SM4LIg",
@@ -33,11 +33,11 @@ export const mockAboutme = () => new Promise<AboutMe>(function (resolve, rejecte
         resolve(JSON.parse(
             `{
             "id":"12389asdfasf8",
-            "name":"Lucas Fernández Aragón",
-            "birthday":765817712000,
+            "name":"Yessica Bao Ye",
+            "birthday":627874534000,
             "nationality":"Spain",
-            "job":"Red Hat",
-            "github":"https://github.com/lucferbux"
+            "job":"Lumisa",
+            "github":"https://github.com/pepiyu"
             }`
         ));
     }, 500);

@@ -9,7 +9,7 @@ module.exports = {
         description: 'TypeScript, Express, JWT Auth, Mongoose', // Description (optional)
     },
     servers: [
-        { url: 'http://localhost:4000' }
+        { url: 'http://localhost:3500' }
     ],
     apis: [path.join(__dirname, './src/**/**/*.ts')]
 };

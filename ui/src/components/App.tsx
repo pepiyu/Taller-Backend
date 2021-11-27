@@ -12,6 +12,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Loader from "./elements/Loader";
 import Dashboard from "./routes/Dashboard";
 import Admin from "./routes/Admin";
+import Project from "./routes/Project";
 
 const App = () => {
   return (
@@ -26,6 +27,9 @@ const App = () => {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/project">
+            <Project />
           </Route>
           <PrivateRoute path="/admin">
             <Admin />

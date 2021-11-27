@@ -128,6 +128,25 @@ export default class HttpApiClient implements ApiClient {
       return response.json();
     });
 
+  createProject = (): Promise<Project> =>
+    handleResponse(async () => {
+      const response = await fetch(
+        this.baseUrl + `/v1/createProjects/`,
+        {
+          method: "GET",
+          headers: {
+            //Authorization: getAuthorizationHeader(),
+            //'Accept': 'application/json',
+            //'Content-Type': 'application/json'
+          }
+        }
+      );
+      if (!response.ok) {
+        throw await createApiError(response);
+      }
+      return response.json();
+    });
+
     /** TODO: Create post for Proyect creation with authentication
      * Hint: Headers of the post should be
      * headers: {
