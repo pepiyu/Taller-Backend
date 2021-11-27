@@ -45,5 +45,5 @@ export interface Project {
      * @type {number}
      * @memberof Project
      */
-    timestamp: number;
+     timestamp: Date;
 }
