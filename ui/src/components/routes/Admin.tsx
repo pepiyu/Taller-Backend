@@ -36,7 +36,7 @@ const Admin = () => {
           title: title,
           description: description,
           version: version,
-          link: "",
+          link: link,
           tag: tags,
           timestamp: timestamp,
       }    

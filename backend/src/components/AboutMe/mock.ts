@@ -1,10 +1,10 @@
 export const  MockAboutMe = [
     {
-        "id": "12389asdfasf8",
-        "name": "Yessica",
-        "birthday": 765817712000,
-        "nationality": "Spain",
-        "job": "Red Hat",
-        "github": "https://github.com/lucferbux"
+        "id":"12389asdfasf8",
+        "name":"Yessica Bao Ye",
+        "birthday":627874534000,
+        "nationality":"Spain",
+        "job":"Lumisa",
+        "github":"https://github.com/pepiyu"
     }
 ]
