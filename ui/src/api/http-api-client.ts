@@ -61,12 +61,10 @@ const handleResponse = async <T>(func: () => Promise<T>): Promise<T> => {
   }
 };
 
-//TODO: Uncomment to use it with auth
 const getAuthorizationHeader = () => {
   const accessToken = getAccessToken();
   
   if (accessToken) {
-    console.log("äutorizacion:"+accessToken);
 
     return "Bearer " + accessToken;
   } else {
@@ -131,20 +129,9 @@ export default class HttpApiClient implements ApiClient {
       return response.json();
     });
 
-    /** TODO: Create post for Proyect creation with authentication
-     * Hint: Headers of the post should be
-     * headers: {
-          Authorization: getAuthorizationHeader(),
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-     * 
-     */
 
     addProject = (project:Project): Promise<Project> =>
     handleResponse(async () => {
-
-      console.log(project);
       
       
       const response = await fetch(

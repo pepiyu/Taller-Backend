@@ -28,9 +28,9 @@ const App = () => {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/project">
+          <PrivateRoute path="/project">
             <Project />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/admin">
             <Admin />
           </PrivateRoute>

@@ -39,9 +39,7 @@ const ProjectsService: IProjectsService = {
      */
     async insert(body: IProjectsModel): Promise<IProjectsModel> {
         try {
-            // TODO: Log the project to be created
 
-            console.log('service', body);
             MockProjects.push(body);
 
             return body;

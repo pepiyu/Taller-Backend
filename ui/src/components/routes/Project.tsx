@@ -38,8 +38,6 @@ const Submit = () => {
     }
 
     try {
-        // TODO: Create Proyect Object and post (HINT, there a generateUUID helper method)
-
 
         const timestamp = new Date();
         const project: Project = {
@@ -69,12 +67,11 @@ const Submit = () => {
 
   }
 
-    // TODO: Use it to generete uid
-function generateUUID(): string {
+  function generateUUID(): string {
     return Math.floor((1 + Math.random()) * 0x100000000000)
     .toString(16)
     .substring(1);
-}
+  }
 
   function goBack() {
     setSubmitted(false)

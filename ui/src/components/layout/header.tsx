@@ -13,17 +13,14 @@ export const menuData = [
   {
     title: "nav.dashboard",
     link: "/dashboard",
-    private: false
   },
   {
     title: "nav.project",
     link: "/project",
-    private: true
   },
   {
     title: "nav.admin",
     link: "/admin",
-    private: false
   },
 ];
 

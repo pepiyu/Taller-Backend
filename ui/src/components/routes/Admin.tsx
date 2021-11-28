@@ -4,6 +4,9 @@ import styled from "styled-components";
 import useApp from "../../hooks/useApp";
 import { themes } from "../../styles/ColorStyles";
 import { Caption, H1 } from "../../styles/TextStyles";
+import { Project } from "../../model/project";
+import createApiClient from "../../api/api-client-factory";
+
 
 const Admin = () => {
   const { t } = useTranslation();
@@ -20,17 +23,25 @@ const Admin = () => {
   async function postProject(event: FormEvent<HTMLFormElement>) {
     dismissError();
     event.preventDefault();
+    const api = createApiClient();
     if (!readyToSubmit()) {
       setErrorMsg(t("admin.err_invalid_form"));
       return;
     }
     try {
-      console.log(title);
-      console.log(description);
-      console.log(tags);
-      console.log(version);
-      console.log(link);
-      // TODO: Create Proyect Object and post (HINT, there a generateUUID helper method)
+      const timestamp = new Date();
+      
+      const project: Project = {
+          id: generateUUID(),
+          title: title,
+          description: description,
+          version: version,
+          link: "",
+          tag: tags,
+          timestamp: timestamp,
+      }    
+  
+      await api.addProject(project)
       addNotification("Posting...");
       resetForm();
       setSuccessMsg(t("admin.suc_network"));
@@ -42,12 +53,11 @@ const Admin = () => {
     }
   }
 
-  // TODO: Use it to generete uid
-  // function generateUUID(): string {
-  //   return Math.floor((1 + Math.random()) * 0x100000000000)
-  //   .toString(16)
-  //   .substring(1);
-  // }
+  function generateUUID(): string {
+    return Math.floor((1 + Math.random()) * 0x100000000000)
+    .toString(16)
+    .substring(1);
+  }
 
   function resetForm() {
     setErrorMsg("");

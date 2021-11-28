@@ -9,7 +9,6 @@ const router: Router = Router();
 
 router.get('/', jwtConfig.isAuthenticated, ProjectsComponent.findAll);
 
-// TODO: Create a POST route (note, use a midelware with jwtConfig) ->  functiontocreate(path, middlewarejswt, actiontoperform)
 router.post('/', jwtConfig.isAuthenticated, ProjectsComponent.create);
 
 
