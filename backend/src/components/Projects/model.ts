@@ -9,7 +9,7 @@ export interface IProjectsModel{
     version: string;
     link: string;
     tag: string;
-    timestamp: number;
+    timestamp: Date;
 }
 
 export default IProjectsModel;

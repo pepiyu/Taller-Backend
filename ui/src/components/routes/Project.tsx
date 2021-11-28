@@ -8,6 +8,7 @@ import { themes } from "../../styles/ColorStyles";
 import { Caption, H1 } from "../../styles/TextStyles";
 import { mockAddProject } from "../../utils/mock-response";
 import { Project } from "../../model/project";
+import createApiClient from "../../api/api-client-factory";
 
 
 const Submit = () => {
@@ -30,28 +31,50 @@ const Submit = () => {
   async function doSubmit(event: FormEvent<HTMLFormElement>) {
     dismissError();
     event.preventDefault();
-
+    const api = createApiClient();
     if (!readyToSubmit()) {
       setErrorMsg(t("project.err_titl_descrip"));
       return;
     }
 
-    const project: Project = {
-      id: "7890asdf890",
-      title: title,
-      description: description,
-      version: version,
-      link: "",
-      tag: tags,
-      timestamp: new Date(),
-    }
-
-    mockAddProject(project)
+    try {
+        // TODO: Create Proyect Object and post (HINT, there a generateUUID helper method)
 
 
-    setSubmitted(!submitted)
+        const timestamp = new Date();
+        const project: Project = {
+            id: generateUUID(),
+            title: title,
+            description: description,
+            version: version,
+            link: "",
+            tag: tags,
+            timestamp: timestamp,
+        }    
+    
+        await api.addProject(project)
+    
+    
+        setSubmitted(!submitted)
+
+        
+      } catch (e) {
+        setErrorMsg(t("admin.err_network"));
+      }
+
+
+      
+
+
 
   }
+
+    // TODO: Use it to generete uid
+function generateUUID(): string {
+    return Math.floor((1 + Math.random()) * 0x100000000000)
+    .toString(16)
+    .substring(1);
+}
 
   function goBack() {
     setSubmitted(false)
@@ -108,10 +131,10 @@ const Submit = () => {
         (
         <ProjectForm onSubmit={doSubmit}>
           { errorMsg && <ErrorDescription>{errorMsg}</ErrorDescription>}
-          <LoginForm name="title" type="text" placeholder={t("project.title_placeholder")} value={title} onChange={onChangeTitle}/>
-          <LoginForm name="description" type="text" placeholder={t("project.description_placeholder")} value={description} onChange={onChangeDescription}/>
-          <LoginForm name="tag" type="text" placeholder={t("project.tag_placeholder")} value={tags} onChange={onChangeTags}/>
-          <LoginForm name="version" type="text" placeholder={t("project.version_placeholder")} value={version} onChange={onChangeVersion}/>
+          <LoginForm id="title" name="title" type="text" placeholder={t("project.title_placeholder")} value={title} onChange={onChangeTitle}/>
+          <LoginForm id="description" name="description" type="text" placeholder={t("project.description_placeholder")} value={description} onChange={onChangeDescription}/>
+          <LoginForm id="tag" name="tag" type="text" placeholder={t("project.tag_placeholder")} value={tags} onChange={onChangeTags}/>
+          <LoginForm id="version" name="version" type="text" placeholder={t("project.version_placeholder")} value={version} onChange={onChangeVersion}/>
           <ButtonWrapper>
             <ButtonForm type="button" value={t("project.button_delete") != null ? t("project.button_delete") as string : "Delete"}  />
             <ButtonForm type="submit" value={t("project.button_post") != null ? t("project.button_post") as string : "Submit"}  />

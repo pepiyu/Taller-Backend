@@ -39,5 +39,5 @@ export default interface ApiClient {
   getAboutMe(): Promise<AboutMe>;
   getProjects(): Promise<Project[]>;
   // TODO: Create POST for project
-  createProject(): Promise<Project>;
+  addProject(project:Project): Promise<Project>;
 }

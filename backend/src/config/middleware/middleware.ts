@@ -54,14 +54,16 @@ export function initErrorHandler(app: express.Application): void {
         if (error instanceof HttpError) {
             res.sendHttpError(error);
         } else {
-            if (app.get('env') === 'development') {
-                error = new HttpError(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
-                res.sendHttpError(error);
-            } else {
-                error = new HttpError(HttpStatus.INTERNAL_SERVER_ERROR);
-                res.sendHttpError(error, error.message);
-            }
+            //if (app.get('env') === 'development') {
+            //    error = new HttpError(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
+            //    res.sendHttpError(error);
+            //} else {
+            //    error = new HttpError(HttpStatus.INTERNAL_SERVER_ERROR);
+            //    res.sendHttpError(error, error.message);
+            //}
         }
+
+        next();
 
         Logger.error(error);
     });

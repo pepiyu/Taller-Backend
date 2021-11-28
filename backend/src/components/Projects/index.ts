@@ -46,6 +46,9 @@ export async function findOne(req: Request, res: Response, next: NextFunction): 
  */
 export async function create(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
+        console.log("body "+req.body);
+        
+        
         const aboutMe: IProjectsModel = await ProjectsService.insert(req.body);
 
         res.status(201).json(aboutMe);
