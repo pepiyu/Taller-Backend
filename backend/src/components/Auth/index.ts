@@ -48,14 +48,12 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
     try {
         const user: IUserModel = await AuthService.getUser(req.body);
 
-        console.log(req.body);
         
 
         const token: string = jwt.sign({ id: user.id, email: user.email }, app.get('secret'), {
             expiresIn: '60m',
         });
 
-        console.log(token);
         
 
 
