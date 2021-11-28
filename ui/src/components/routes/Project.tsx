@@ -39,7 +39,7 @@ const Submit = () => {
 
     try {
 
-        const timestamp = new Date();
+        const timestamp = new Date().getTime();
         const project: Project = {
             id: generateUUID(),
             title: title,

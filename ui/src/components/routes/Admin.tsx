@@ -29,7 +29,7 @@ const Admin = () => {
       return;
     }
     try {
-      const timestamp = new Date();
+      const timestamp = new Date().getTime();
       
       const project: Project = {
           id: generateUUID(),

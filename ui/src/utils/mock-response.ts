@@ -54,7 +54,7 @@ export const projects: Array<Project> = [
     "version":"5.2.0",
     "link":"https://github.com/pepiyu/Taller-FrontEnd",
     "tag":"React, JavaScript, Typescript",
-    "timestamp": new Date(765817712005)
+    "timestamp": 765817712005
     },
     {
     "id":"7890asdf890",
@@ -63,7 +63,7 @@ export const projects: Array<Project> = [
     "version":"3.0.2",
     "link":"https://github.com/pepiyu/TypescriptWeatherExample",
     "tag":"React, JavaScript, Typescript",
-    "timestamp":new Date(765817712006)
+    "timestamp":765817712006
     },
     {
     "id":"7890asdf890",
@@ -72,7 +72,7 @@ export const projects: Array<Project> = [
     "version":"-",
     "link":"https://github.com/pepiyu/pugmemory",
     "tag":"React, JavaScript, Typescript",
-    "timestamp":new Date(765817712007)
+    "timestamp":765817712007
     },
     {
     "id":"7890asdf890",
@@ -81,7 +81,7 @@ export const projects: Array<Project> = [
     "version":"-",
     "link":"https://github.com/pepiyu/crud-http",
     "tag":"Api, Crud",
-    "timestamp":new Date(765817712007)
+    "timestamp":765817712007
     }
 ]
 
